@@ -3,99 +3,462 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>关于我 - 林宇鹏</title>
-    <meta name="description" content="林宇鹏的个人简介 - 全栈开发工程师，专注于Java + Vue.js技术生态">
-    <link rel="stylesheet" href="style.css">
+    <title>关于我 - 林宇鹏个人网站</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            background: url('miku.PNG');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+        
+        .top-nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            background: transparent;
+            padding: 15px 30px;
+            z-index: 1000;
+        }
+        
+        .top-nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .top-nav-link {
+            color: #333333;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .top-nav-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, rgba(0, 194, 209, 0.95), rgba(10, 132, 255, 0.95));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .header h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .content-section {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #00C2D1;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .personal-info {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 30px;
+            align-items: flex-start;
+        }
+        
+        .info-items-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            height: 300px;
+        }
+        
+        .profile-image-container {
+            flex: 0 0 300px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        
+        .profile-image {
+            max-width: 100%;
+            height: 300px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+        }
+        
+        /* 技能卡片样式 */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .skill-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            border-left: 4px solid #00C2D1;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            background: #ffffff;
+        }
+        
+        .skill-card h4 {
+            color: #333;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        
+        .skill-card p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 14px;
+            margin: 0;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .personal-info {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .profile-image-container {
+                flex: 0 0 auto;
+                order: -1;
+            }
+            
+            .profile-image {
+                max-width: 250px;
+                margin: 0 auto;
+            }
+            
+            .info-items-container {
+                gap: 15px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+        
+        .info-item {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            border-left: 4px solid #00C2D1;
+            height: 87px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .info-item h3 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .info-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .intro-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        
+        .intro-text p {
+            margin-bottom: 15px;
+        }
+        
+        .tech-interests {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .interest-card {
+            background: #f0f9ff;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #b3e0ff;
+            transition: all 0.3s ease;
+        }
+        
+        .interest-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 194, 209, 0.2);
+        }
+        
+        .interest-card h4 {
+            color: #0066cc;
+            font-size: 16px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .interest-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .tech-tag {
+            background: linear-gradient(135deg, #00C2D1, #0A84FF);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .navigation {
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-link {
+            background: linear-gradient(135deg, #00C2D1, #0A84FF);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 194, 209, 0.3);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #666;
+            font-size: 14px;
+            border-top: 1px solid #e9ecef;
+            margin-top: 50px;
+        }
+        
+        .page-title-section {
+            text-align: center;
+            padding: 60px 0 40px;
+            margin-bottom: 40px;
+        }
+        
+        .artistic-title {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: #00C2D1;
+            text-shadow: 2px 2px 4px rgba(0, 194, 209, 0.3);
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #00C2D1, #0A84FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .artistic-subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+    </style>
 </head>
 <body>
-    <!-- 导航栏 -->
-    <nav class="main-nav">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">林宇鹏</a>
-            <div class="nav-menu">
-                <a href="index.html" class="nav-link">首页</a>
-                <a href="portfolio.html" class="nav-link">项目作品</a>
-                <a href="about.html" class="nav-link active">关于我</a>
-            </div>
+    <nav class="top-nav">
+        <div class="top-nav-links">
+            <a href="index.html" class="top-nav-link">首页</a>
+            <a href="about.html" class="top-nav-link">关于我</a>
+            <a href="portfolio.html" class="top-nav-link">项目作品</a>
         </div>
     </nav>
-
-    <!-- 主内容区域 -->
-    <main class="main-content">
-        <!-- 主标题区域 -->
-        <section class="hero-section">
-            <div class="hero-container">
-                <h1 class="artistic-title">关于我</h1>
-            </div>
-        </section>
-
-        <!-- 基本信息区域 -->
-        <section class="section-container">
-            <div class="about-container">
-                <!-- 左边：基本信息 -->
+    <div class="container">
+        <div class="page-title-section">
+            <h1 class="artistic-title">关于我</h1>
+        </div>
+        <div class="content-section">
+            <h2 class="section-title">基本信息</h2>
+            
+            <div class="personal-info">
                 <div class="info-items-container">
                     <div class="info-item">
-                        <h3>专业方向</h3>
-                        <p>全栈开发工程师，专注于前后端分离架构与微服务设计</p>
+                        <h3>姓名</h3>
+                        <p>林宇鹏</p>
                     </div>
+                    
                     <div class="info-item">
-                        <h3>技术栈</h3>
-                        <p>Java + Vue.js技术生态，包括Spring Boot、Vue 3、PostgreSQL、Redis等</p>
+                        <h3>学校</h3>
+                        <p>广东技术师范大学</p>
                     </div>
+                    
                     <div class="info-item">
-                        <h3>项目经验</h3>
-                        <p>3年项目开发经验，涵盖Web应用、移动端、AI工程化等领域</p>
+                        <h3>专业</h3>
+                        <p>网络工程（创新实验班）</p>
                     </div>
                 </div>
                 
-                <!-- 右边：个人照片 -->
-                <div class="about-image">
-                    <img src="gpnu2.jpg" alt="林宇鹏个人照片">
+                <div class="profile-image-container">
+                    <img src="gpnu2.jpg" alt="个人照片" class="profile-image">
                 </div>
             </div>
-        </section>
 
-        <!-- 专业技能区域 -->
-        <section class="section-container">
-            <h2 class="section-title">专业技能</h2>
+            <h2 class="section-title">专业能力</h2>
+            
             <div class="skills-grid">
                 <div class="skill-card">
-                    <h4>后端开发</h4>
-                    <p>精通Spring Boot微服务架构设计，熟悉RESTful API开发、数据库设计与优化、缓存技术应用</p>
+                    <h4>Java开发</h4>
+                    <p>熟练使用 Spring Boot、MyBatis 框架搭建后端服务，掌握Servlet、JSP处理HTTP请求；熟悉HTML/CSS/JavaScript基础，可配合前端完成页面交互联调。</p>
                 </div>
+                
                 <div class="skill-card">
-                    <h4>前端开发</h4>
-                    <p>熟练掌握Vue.js组件化开发，了解React技术栈，具备响应式设计和用户体验优化能力</p>
+                    <h4>服务器管理</h4>
+                    <p>熟练操作Linux系统，能完成 DNS 配置、域控管理、DKP 部署；具备虚拟化平台基础管理能力，可分配服务器资源、排查服务卡顿问题。</p>
                 </div>
+                
                 <div class="skill-card">
-                    <h4>数据库设计</h4>
-                    <p>精通PostgreSQL数据库设计与优化，熟悉Redis缓存技术，具备SQL性能调优经验</p>
+                    <h4>编程语言</h4>
+                    <p>掌握C#、Python、Java等语言的使用，熟练使用VS Code、PyToch、PyCharm、Qt等开发工具，掌握其基本功能和使用技巧，能够高效地进行代码编写、调试和优化。</p>
                 </div>
+                
                 <div class="skill-card">
-                    <h4>AI工程化</h4>
-                    <p>具备AI模型部署经验，熟悉OCR技术应用，能够将深度学习模型集成到实际业务场景</p>
+                    <h4>网络与安全</h4>
+                    <p>了解交换机 VLAN 划分、路由器 VPN 搭建，能协助设计小型网络拓扑；掌握防火墙基础配置与入侵检测系统（IDS）部署逻辑。</p>
                 </div>
             </div>
-        </section>
-
-        <!-- 技术理念区域 -->
-        <section class="section-container">
-            <div class="card">
-                <h2>技术理念</h2>
-                <p>坚持"代码即文档"的开发理念，注重代码可读性和可维护性。相信技术应该服务于业务需求，追求在技术先进性和项目实用性之间找到最佳平衡点。</p>
-                <p>持续学习新技术，但更注重技术深度和实际应用能力。在团队协作中，注重沟通效率和代码规范，致力于构建高质量、可扩展的软件系统。</p>
-            </div>
-        </section>
-    </main>
-
-    <!-- 页脚 -->
-    <footer class="main-footer">
-        <div class="footer-container">
-            <p>&copy; 2024 林宇鹏. 保留所有权利.</p>
-            <p>基于 GitHub Pages 部署</p>
         </div>
-    </footer>
+        
+        <div class="content-section">
+            <h2 class="section-title">技术兴趣方向</h2>
+            
+            <div class="tech-interests">
+                <div class="interest-card">
+                <h4>后端开发</h4>
+                <p>专注于构建稳定、高效的服务器端系统，关注系统架构设计和性能优化</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Spring Boot</span>
+                    <span class="tech-tag">MyBatis</span>
+                    <span class="tech-tag">Redis</span>
+                </div>
+            </div>
+            
+            <div class="interest-card">
+                <h4>深度学习应用</h4>
+                <p>探索AI技术在现实场景中的应用，特别是计算机视觉和自然语言处理领域</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">YOLO</span>
+                    <span class="tech-tag">PaddleOCR</span>
+                    <span class="tech-tag">TensorFlow</span>
+                </div>
+            </div>
+            
+            <div class="interest-card">
+                <h4>系统架构与性能优化</h4>
+                <p>关注大规模系统的设计原则，致力于提升系统的可扩展性和响应速度</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">微服务</span>
+                    <span class="tech-tag">缓存策略</span>
+                    <span class="tech-tag">负载均衡</span>
+                </div>
+            </div>
+            </div>
+        </div>
+        
 
-    <script src="script.js"></script>
+        
+    </div>
+    
+    <div class="footer">
+        <div class="container">
+            <p>© 2024 林宇鹏个人网站</p>
+        </div>
+    </div>
+    
+    <script src="scroll-animation.js"></script>
 </body>
 </html>

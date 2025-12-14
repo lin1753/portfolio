@@ -3,123 +3,530 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>项目作品 - 林宇鹏</title>
-    <meta name="description" content="林宇鹏的项目作品展示 - 个人博客系统、外卖平台、OCR识别系统等">
-    <link rel="stylesheet" href="style.css">
+    <title>项目作品预览 - 林宇鹏个人网站</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            background: url('miku.PNG');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+        
+        .top-nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            background: transparent;
+            padding: 15px 30px;
+            z-index: 1000;
+        }
+        
+        .top-nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .top-nav-link {
+            color: #333333;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .top-nav-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, rgba(0, 194, 209, 0.95), rgba(10, 132, 255, 0.95));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .header h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .project-section {
+            margin-bottom: 60px;
+        }
+        
+        .project-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            padding: 40px;
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+        }
+        
+        .project-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .project-icon {
+            font-size: 32px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #00C2D1, #0A84FF);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .project-title {
+            color: #333;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        
+        .project-subtitle {
+            color: #666;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+        
+        .tech-tag {
+            background: #f0f9ff;
+            color: #0066cc;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .project-content {
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .project-content p {
+            margin-bottom: 15px;
+        }
+        
+        .highlight-section {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #00C2D1;
+        }
+        
+        .highlight-section h4 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .feature-item {
+            background: #ffffff;
+            border-radius: 6px;
+            padding: 15px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .feature-item h5 {
+            color: #333;
+            font-size: 14px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .feature-item p {
+            color: #666;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        
+        .architecture-section {
+            background: #fff9f0;
+            border: 1px solid #ffd8b3;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        
+        .architecture-section h4 {
+            color: #cc6600;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .architecture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .arch-item {
+            background: #fff5e6;
+            border-radius: 6px;
+            padding: 12px;
+            text-align: center;
+        }
+        
+        .arch-item h5 {
+            color: #cc6600;
+            font-size: 14px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .arch-item p {
+            color: #996600;
+            font-size: 12px;
+        }
+        
+        .main-project {
+            border: 3px solid #00C2D1;
+            position: relative;
+        }
+        
+        .main-project::before {
+            content: '⭐ 重点项目';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: #00C2D1;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .navigation {
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-link {
+            background: linear-gradient(135deg, #00C2D1, #0A84FF);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 194, 209, 0.3);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #666;
+            font-size: 14px;
+            border-top: 1px solid #e9ecef;
+            margin-top: 50px;
+        }
+        
+        .page-title-section {
+            text-align: center;
+            padding: 60px 0 40px;
+            margin-bottom: 40px;
+        }
+        
+        .artistic-title {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: #00C2D1;
+            text-shadow: 2px 2px 4px rgba(0, 194, 209, 0.3);
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #00C2D1, #0A84FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .artistic-subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+    </style>
 </head>
 <body>
-    <!-- 导航栏 -->
-    <nav class="main-nav">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">林宇鹏</a>
-            <div class="nav-menu">
-                <a href="index.html" class="nav-link">首页</a>
-                <a href="portfolio.html" class="nav-link active">项目作品</a>
-                <a href="about.html" class="nav-link">关于我</a>
-            </div>
+    <nav class="top-nav">
+        <div class="top-nav-links">
+            <a href="index.html" class="top-nav-link">首页</a>
+            <a href="about.html" class="top-nav-link">关于我</a>
+            <a href="portfolio.html" class="top-nav-link">项目作品</a>
         </div>
     </nav>
-
-    <!-- 主内容区域 -->
-    <main class="main-content">
-        <!-- 主标题区域 -->
-        <section class="hero-section">
-            <div class="hero-container">
-                <h1 class="artistic-title">项目作品</h1>
-                <p class="hero-subtitle">精选技术项目展示，涵盖全栈开发、后端架构、AI工程化等领域</p>
-            </div>
-        </section>
-
-        <!-- 项目展示区域 -->
-        <section class="section-container">
-            <div class="projects-grid">
-                <!-- 项目1：个人博客系统 -->
-                <div class="project-card">
-                    <h4>⭐ 个人博客系统（全栈开发）</h4>
-                    <span class="tech">Spring Boot + Vue 3 + PostgreSQL</span>
-                    <p>前后端分离架构，包含用户认证、内容管理、智能主题系统等完整功能</p>
-                    <div class="project-details">
-                        <h5>技术亮点：</h5>
-                        <ul>
-                            <li>基于JWT的用户认证与权限管理</li>
-                            <li>Markdown编辑器与实时预览</li>
-                            <li>响应式设计，支持多端访问</li>
-                            <li>RESTful API设计规范</li>
-                        </ul>
-                    </div>
-                    <span class="highlight">全栈技术实践</span>
-                </div>
-
-                <!-- 项目2：外卖订餐平台 -->
-                <div class="project-card">
-                    <h4>外卖订餐平台（后端）</h4>
-                    <span class="tech">Spring Boot + MyBatis + Redis</span>
-                    <p>完整的REST API设计，包含缓存优化和业务逻辑处理，支持高并发场景</p>
-                    <div class="project-details">
-                        <h5>核心功能：</h5>
-                        <ul>
-                            <li>商家管理、菜品管理、订单处理</li>
-                            <li>Redis缓存优化，提升系统性能</li>
-                            <li>支付接口集成与订单状态管理</li>
-                            <li>高并发场景下的数据一致性保障</li>
-                        </ul>
-                    </div>
-                    <span class="highlight">后端架构设计</span>
-                </div>
-
-                <!-- 项目3：行李箱托运单系统 -->
-                <div class="project-card">
-                    <h4>行李箱托运单关键信息识别系统</h4>
-                    <span class="tech">YOLO + PaddleOCR</span>
-                    <p>基于深度学习的OCR区域检测与文本识别系统，实现托运单关键信息自动化提取</p>
-                    <div class="project-details">
-                        <h5>技术实现：</h5>
-                        <ul>
-                            <li>YOLO目标检测模型定位关键区域</li>
-                            <li>PaddleOCR进行文本识别与提取</li>
-                            <li>图像预处理与后处理优化</li>
-                            <li>Web界面集成与结果可视化</li>
-                        </ul>
-                    </div>
-                    <span class="highlight">模型应用与工程实践</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- 技术栈展示 -->
-        <section class="section-container">
-            <h2 class="section-title">技术栈概览</h2>
-            <div class="card">
-                <div class="tech-stack">
-                    <div class="tech-category">
-                        <h3>后端技术</h3>
-                        <p>Spring Boot, MyBatis, PostgreSQL, Redis, RESTful API</p>
-                    </div>
-                    <div class="tech-category">
-                        <h3>前端技术</h3>
-                        <p>Vue.js, React, HTML5, CSS3, JavaScript</p>
-                    </div>
-                    <div class="tech-category">
-                        <h3>AI/机器学习</h3>
-                        <p>YOLO, PaddleOCR, 深度学习, 计算机视觉</p>
-                    </div>
-                    <div class="tech-category">
-                        <h3>开发工具</h3>
-                        <p>Git, Docker, Maven, Webpack, VS Code</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- 页脚 -->
-    <footer class="main-footer">
-        <div class="footer-container">
-            <p>&copy; 2024 林宇鹏. 保留所有权利.</p>
-            <p>基于 GitHub Pages 部署</p>
+    <div class="container">
+        <div class="page-title-section">
+            <h1 class="artistic-title">项目作品</h1>
         </div>
-    </footer>
-
-    <script src="script.js"></script>
+        <!-- 项目三：个人博客系统（全栈开发） -->
+        <div class="project-section">
+            <div class="project-card main-project">
+                <div class="project-header">
+                    <div>
+                        <h2 class="project-title">个人博客系统（全栈开发）</h2>
+                        <p class="project-subtitle">2024年11月 – 2024年12月 · 前后端分离架构实践</p>
+                        <p>项目地址：<a href="https://gitee.com/linyp2513/blog" target="_blank">https://gitee.com/linyp2513/blog</a></p>
+                    </div>
+                </div>
+                
+                <div class="tech-tags">
+                    <span class="tech-tag">Spring Boot 3.2</span>
+                    <span class="tech-tag">Vue 3.3</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">Spring Security</span>
+                    <span class="tech-tag">Element Plus</span>
+                </div>
+                
+                <div class="project-content">
+                    <p>独立设计并开发的全栈博客系统，采用前后端分离架构，具备完整的用户认证、内容管理、智能主题等功能。</p>
+                    
+                    <div class="architecture-section">
+                        <h4>技术架构</h4>
+                        <div class="architecture-grid">
+                            <div class="arch-item">
+                                <h5>后端技术栈</h5>
+                                <p>Spring Boot 3.2<br>Spring Security<br>Spring Data JPA<br>PostgreSQL</p>
+                            </div>
+                            <div class="arch-item">
+                                <h5>前端技术栈</h5>
+                                <p>Vue 3.3<br>Vite<br>Element Plus<br>Pinia</p>
+                            </div>
+                            <div class="arch-item">
+                                <h5>开发工具</h5>
+                                <p>Maven<br>Node.js<br>TypeScript<br>Git</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-section">
+                        <h4>核心功能</h4>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h5>用户认证</h5>
+                                <p>登录/注册/密码重置功能</p>
+                            </div>
+                            <div class="feature-item">
+                                <h5>博客CRUD</h5>
+                                <p>完整的博客内容管理功能</p>
+                            </div>
+                            <div class="feature-item">
+                                <h5>智能主题</h5>
+                                <p>基于日出日落的自动主题切换</p>
+                            </div>
+                            <div class="feature-item">
+                                <h5>响应式设计</h5>
+                                <p>完美适配移动端和桌面端，确保在不同设备上的良好体验</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-section">
+                        <h4>技术亮点</h4>
+                        <p><strong>前后端分离架构：</strong> 清晰的责任分离，便于团队协作和独立部署。</p>
+                        <p><strong>时间感知型主题切换：</strong> 创新的主题切换机制，根据用户所在地的日出日落时间自动调整界面风格。</p>
+                        <p><strong>JPA优化：</strong> 成功解决LazyInitializationException问题，确保数据访问的稳定性。</p>
+                        <p><strong>完整异常处理：</strong> 统一的异常处理机制，提供友好的错误提示和日志记录。</p>
+                    </div>
+                    
+                    <div class="highlight-section">
+                        <h4>项目成果</h4>
+                        <p><strong>系统稳定性：</strong> 成功部署并稳定运行，具备良好的可维护性和扩展性。</p>
+                        <p><strong>技术实践：</strong> 完整的前后端分离开发经验，掌握了现代Web开发的最佳实践。</p>
+                        <p><strong>问题解决：</strong> 在开发过程中解决了多个技术难题，积累了宝贵的实战经验。</p>
+                    </div>
+                    
+                    <p><strong>项目意义：</strong> 该项目不仅是一个功能完整的博客系统，更是对现代Web开发技术的全面实践，体现了从需求分析到系统部署的完整开发流程。</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 项目二：外卖订餐平台（后端） -->
+        <div class="project-section">
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <h2 class="project-title">外卖订餐平台（后端）</h2>
+                        <p class="project-subtitle">Spring Boot + MyBatis + Redis 的高性能后端系统</p>
+                    </div>
+                </div>
+                
+                <div class="tech-tags">
+                    <span class="tech-tag">Spring Boot</span>
+                    <span class="tech-tag">MyBatis</span>
+                    <span class="tech-tag">Redis</span>
+                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">REST API</span>
+                </div>
+                
+                <div class="project-content">
+                    <p>一个完整的在线外卖订餐平台后端系统，支持用户注册登录、商家管理、订单处理、支付集成等核心功能。</p>
+                    
+                    <div class="highlight-section">
+                        <h4>系统架构设计</h4>
+                        <p><strong>分层架构：</strong> 采用经典的三层架构模式，确保代码的可维护性和可扩展性。</p>
+                        <p><strong>缓存策略：</strong> 使用Redis实现热点数据缓存，显著提升系统响应速度。</p>
+                        <p><strong>数据库优化：</strong> 通过索引优化和查询优化，确保在高并发场景下的稳定性能。</p>
+                    </div>
+                    
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <h5>用户管理</h5>
+                            <p>用户注册、登录、权限控制</p>
+                        </div>
+                        <div class="feature-item">
+                            <h5>商家管理</h5>
+                            <p>商家入驻、菜单管理、订单处理</p>
+                        </div>
+                        <div class="feature-item">
+                            <h5>订单系统</h5>
+                            <p>订单创建、状态跟踪、配送管理</p>
+                        </div>
+                        <div class="feature-item">
+                            <h5>支付集成</h5>
+                            <p>支持多种支付方式，确保交易安全</p>
+                        </div>
+                    </div>
+                    
+                    <p><strong>技术挑战：</strong> 在高峰期需要处理大量并发请求，通过合理的缓存策略和数据库优化，系统能够稳定支持数千并发用户。</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 项目一：行李箱托运单关键信息识别系统 -->
+        <div class="project-section">
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <h2 class="project-title">行李箱托运单关键信息识别系统</h2>
+                        <p class="project-subtitle">基于YOLO与PaddleOCR的智能识别解决方案</p>
+                    </div>
+                </div>
+                
+                <div class="tech-tags">
+                    <span class="tech-tag">YOLO</span>
+                    <span class="tech-tag">PaddleOCR</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">OpenCV</span>
+                    <span class="tech-tag">深度学习</span>
+                </div>
+                
+                <div class="project-content">
+                    <p>该项目旨在解决机场行李托运单信息自动化提取的难题。通过结合目标检测和OCR技术，实现了托运单关键区域的精准定位和文本识别。</p>
+                    
+                    <div class="highlight-section">
+                        <h4>技术实现流程</h4>
+                        <p><strong>区域检测：</strong> 使用YOLO模型对托运单上的关键信息区域进行精准定位，包括姓名、航班号、行李重量等字段。</p>
+                        <p><strong>文本识别：</strong> 采用PaddleOCR对识别出的区域进行文字提取，支持中英文混合识别。</p>
+                        <p><strong>信息结构化：</strong> 将识别结果进行结构化处理，输出标准化的JSON格式数据。</p>
+                    </div>
+                    
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <h5>精准定位</h5>
+                            <p>YOLO模型实现95%以上的区域检测准确率</p>
+                        </div>
+                        <div class="feature-item">
+                            <h5>多语言支持</h5>
+                            <p>支持中英文混合文本识别，适应国际机场需求</p>
+                        </div>
+                        <div class="feature-item">
+                            <h5>高效处理</h5>
+                            <p>单张图片处理时间控制在3秒以内</p>
+                        </div>
+                        <div class="feature-item">
+                            <h5>工程实践</h5>
+                            <p>完整的端到端解决方案，可直接部署使用</p>
+                        </div>
+                    </div>
+                    
+                    <p><strong>项目亮点：</strong> 将前沿的深度学习技术应用于实际业务场景，显著提升了机场行李处理的自动化水平，为传统行业的数字化转型提供了技术支撑。</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <div class="footer">
+        <div class="container">
+            <p>© 2024 林宇鹏个人网站</p>
+        </div>
+    </div>
+    
+    <script src="scroll-animation.js"></script>
 </body>
 </html>

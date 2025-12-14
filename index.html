@@ -4,70 +4,322 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>林宇鹏 - 个人作品集</title>
-    <meta name="description" content="全栈开发工程师 | Java + Vue.js技术生态 | 个人作品展示">
-    <meta name="keywords" content="林宇鹏, 全栈开发, Java, Vue.js, Spring Boot, 作品集">
-    
-    <!-- 样式文件 -->
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- 预加载关键资源 -->
-    <link rel="preload" href="miku.PNG" as="image">
-    
-    <!-- 结构化数据 -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "林宇鹏",
-        "jobTitle": "全栈开发工程师",
-        "alumniOf": {
-            "@type": "EducationalOrganization",
-            "name": "广东技术师范大学"
-        },
-        "knowsAbout": ["Java", "Vue.js", "Spring Boot", "PostgreSQL", "Redis"]
-    }
-    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            background: url('miku.PNG');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+        
+        .top-nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            background: transparent;
+            padding: 15px 30px;
+            z-index: 1000;
+        }
+        
+        .top-nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .top-nav-link {
+            color: #333333;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .top-nav-link:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-2px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, rgba(0, 194, 209, 0.95), rgba(10, 132, 255, 0.95));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn:hover {
+            background: white;
+            color: #00C2D1;
+            transform: translateY(-2px);
+        }
+        
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+        }
+        
+        .card h3 {
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .school-logo {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .projects-section {
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+        }
+        
+        .project-card h4 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .project-card .tech {
+            background: #f0f9ff;
+            color: #0066cc;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .project-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .project-card .highlight {
+            background: linear-gradient(135deg, #00C2D1, #0A84FF);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .navigation {
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-link {
+            background: linear-gradient(135deg, #00C2D1, #0A84FF);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 194, 209, 0.3);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #666;
+            font-size: 14px;
+            border-top: 1px solid #e9ecef;
+            margin-top: 50px;
+        }
+        
+        .page-title-section {
+            text-align: center;
+            padding: 80px 0 60px;
+            margin-bottom: 40px;
+            background: transparent;
+            margin: 0 auto 40px;
+            max-width: 100%;
+        }
+        
+        .artistic-title {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: #00C2D1;
+            text-shadow: 2px 2px 4px rgba(0, 194, 209, 0.3);
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #00C2D1, #0A84FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .artistic-subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+    </style>
 </head>
 <body>
-    <!-- 导航栏 -->
-    <nav class="main-nav">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">林宇鹏</a>
-            <div class="nav-menu">
-                <a href="index.html" class="nav-link active">首页</a>
-                <a href="portfolio.html" class="nav-link">项目作品</a>
-                <a href="about.html" class="nav-link">关于我</a>
-            </div>
+    <nav class="top-nav">
+        <div class="top-nav-links">
+            <a href="index.html" class="top-nav-link">首页</a>
+            <a href="about.html" class="top-nav-link">关于我</a>
+            <a href="portfolio.html" class="top-nav-link">项目作品</a>
         </div>
     </nav>
-
-    <!-- 主内容区域 -->
-    <main class="main-content">
-        <!-- 主标题区域 -->
-        <section class="hero-section">
-            <div class="hero-container">
-                <h1 class="artistic-title">林宇鹏</h1>
-                <p class="hero-subtitle">全栈开发工程师 | Java + Vue.js技术生态</p>
-            </div>
-        </section>
-
-        <!-- 教育背景卡片 -->
-        <section class="section-container">
-            <div class="card education-card">
+    <div class="container">
+        <div class="page-title-section">
+            <h1 class="artistic-title">你好，我是 林宇鹏</h1>
+        </div>
+        <div class="info-cards">
+            <div class="card">
                 <div class="card-header">
-                    <h2>教育背景</h2>
+                    <h3>教育背景</h3>
                     <img src="gpnu1.png" alt="广东技术师范大学" class="school-logo">
                 </div>
-                <div class="card-content">
-                    <h3>广东技术师范大学</h3>
-                    <p>软件工程专业 | 本科</p>
-                    <p class="education-desc">专注于软件工程理论与实践，具备扎实的编程基础和系统设计能力</p>
-                </div>
+                <p>广东技术师范大学                网络工程（创新实验班）                  2023.9—2027.6</p>
+                <p>主修课程：C语言程序设计、数据结构与算法、计算机组成原理、计算机网络、Python编程、Java程序设计、移动软件开发、网络与信息安全、数据库原理与应用、Linux操作系统等。</p>
             </div>
-        </section>
-
-        <!-- 项目速览 -->
-        <section class="section-container">
+        </div>
+        
+        <div class="projects-section">
             <h2 class="section-title">项目速览</h2>
             <div class="projects-grid">
                 <div class="project-card">
@@ -91,18 +343,16 @@
                     <span class="highlight">模型应用与工程实践</span>
                 </div>
             </div>
-        </section>
-    </main>
-
-    <!-- 页脚 -->
-    <footer class="main-footer">
-        <div class="footer-container">
-            <p>&copy; 2024 林宇鹏. 保留所有权利.</p>
-            <p>基于 GitHub Pages 部署</p>
         </div>
-    </footer>
-
-    <!-- 脚本文件 -->
-    <script src="script.js"></script>
+        
+    </div>
+    
+    <div class="footer">
+        <div class="container">
+            <p>© 2024 林宇鹏个人网站</p>
+        </div>
+    </div>
+    
+    <script src="scroll-animation.js"></script>
 </body>
 </html>
