@@ -1,0 +1,397 @@
+/* 林宇鹏个人作品集 - 样式文件 */
+
+/* 基础样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: url('miku.PNG') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 194, 209, 0.1) 0%, rgba(10, 132, 255, 0.1) 100%);
+    z-index: -1;
+}
+
+/* 导航栏样式 */
+.main-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00C2D1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-logo:hover {
+    color: #0A84FF;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    color: #333;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: #00C2D1;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* 主内容区域 */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 2rem 2rem;
+}
+
+/* 主标题区域 */
+.hero-section {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.hero-container {
+    background: transparent;
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    backdrop-filter: none;
+}
+
+.artistic-title {
+    font-size: 4.5rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #00C2D1, #0A84FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    color: #666;
+    font-weight: 300;
+}
+
+/* 章节容器 */
+.section-container {
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+    text-align: center;
+    background: linear-gradient(135deg, #00C2D1, #0A84FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* 卡片样式 */
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.card-header h2 {
+    color: #333;
+    font-size: 1.8rem;
+}
+
+.school-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+}
+
+.card-content h3 {
+    color: #00C2D1;
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.education-desc {
+    color: #666;
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+/* 项目网格 */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border-left: 4px solid #00C2D1;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    border-left-color: #0A84FF;
+}
+
+.project-card h4 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.tech {
+    display: inline-block;
+    background: #00C2D1;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.project-card p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.highlight {
+    display: inline-block;
+    background: #0A84FF;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* 关于我页面特定样式 */
+.about-container {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+.info-items-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 300px;
+}
+
+.info-item {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    border-left: 4px solid #00C2D1;
+    height: 87px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info-item h3 {
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.info-item p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.about-image {
+    flex: 0 0 300px;
+    height: 300px;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.skill-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.skill-card h4 {
+    color: #00C2D1;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.skill-card p {
+    color: #666;
+    line-height: 1.5;
+}
+
+/* 页脚样式 */
+.main-footer {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.footer-container p {
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .main-nav {
+        position: static;
+        padding: 1rem;
+    }
+    
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-menu {
+        justify-content: center;
+    }
+    
+    .main-content {
+        padding: 2rem 1rem;
+    }
+    
+    .artistic-title {
+        font-size: 3rem;
+    }
+    
+    .about-container {
+        flex-direction: column;
+    }
+    
+    .about-image {
+        flex: none;
+        width: 100%;
+        height: 250px;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .artistic-title {
+        font-size: 2.5rem;
+    }
+    
+    .card {
+        padding: 1.5rem;
+    }
+    
+    .project-card {
+        padding: 1.5rem;
+    }
+}

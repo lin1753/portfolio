@@ -1,0 +1,24 @@
+title: 林宇鹏 - 个人作品集
+description: 全栈开发工程师 | Java + Vue.js技术生态 | 个人作品展示
+baseurl: "/portfolio"
+url: "https://lin1753.github.io"
+
+# GitHub Pages设置
+theme: jekyll-theme-cayman
+
+# 排除不需要的文件
+exclude:
+  - ".github"
+  - "README.md"
+  - "LICENSE"
+  - "node_modules"
+  - "package.json"
+  - "package-lock.json"
+
+# 包含的文件
+include:
+  - "*.html"
+  - "*.css"
+  - "*.png"
+  - "*.jpg"
+  - "*.PNG"

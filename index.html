@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>林宇鹏 - 个人作品集</title>
+    <meta name="description" content="全栈开发工程师 | Java + Vue.js技术生态 | 个人作品展示">
+    <meta name="keywords" content="林宇鹏, 全栈开发, Java, Vue.js, Spring Boot, 作品集">
+    
+    <!-- 样式文件 -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- 预加载关键资源 -->
+    <link rel="preload" href="miku.PNG" as="image">
+    
+    <!-- 结构化数据 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "林宇鹏",
+        "jobTitle": "全栈开发工程师",
+        "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "广东技术师范大学"
+        },
+        "knowsAbout": ["Java", "Vue.js", "Spring Boot", "PostgreSQL", "Redis"]
+    }
+    </script>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">林宇鹏</a>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link active">首页</a>
+                <a href="portfolio.html" class="nav-link">项目作品</a>
+                <a href="about.html" class="nav-link">关于我</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容区域 -->
+    <main class="main-content">
+        <!-- 主标题区域 -->
+        <section class="hero-section">
+            <div class="hero-container">
+                <h1 class="artistic-title">林宇鹏</h1>
+                <p class="hero-subtitle">全栈开发工程师 | Java + Vue.js技术生态</p>
+            </div>
+        </section>
+
+        <!-- 教育背景卡片 -->
+        <section class="section-container">
+            <div class="card education-card">
+                <div class="card-header">
+                    <h2>教育背景</h2>
+                    <img src="gpnu1.png" alt="广东技术师范大学" class="school-logo">
+                </div>
+                <div class="card-content">
+                    <h3>广东技术师范大学</h3>
+                    <p>软件工程专业 | 本科</p>
+                    <p class="education-desc">专注于软件工程理论与实践，具备扎实的编程基础和系统设计能力</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目速览 -->
+        <section class="section-container">
+            <h2 class="section-title">项目速览</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h4>⭐ 个人博客系统（全栈开发）</h4>
+                    <span class="tech">Spring Boot + Vue 3 + PostgreSQL</span>
+                    <p>前后端分离架构，包含用户认证、内容管理、智能主题系统等完整功能</p>
+                    <span class="highlight">全栈技术实践</span>
+                </div>
+                
+                <div class="project-card">
+                    <h4>外卖订餐平台（后端）</h4>
+                    <span class="tech">Spring Boot + MyBatis + Redis</span>
+                    <p>完整的REST API设计，包含缓存优化和业务逻辑处理，支持高并发场景</p>
+                    <span class="highlight">后端架构设计</span>
+                </div>
+                
+                <div class="project-card">
+                    <h4>行李箱托运单关键信息识别系统</h4>
+                    <span class="tech">YOLO + PaddleOCR</span>
+                    <p>基于深度学习的OCR区域检测与文本识别系统，实现托运单关键信息自动化提取</p>
+                    <span class="highlight">模型应用与工程实践</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <p>&copy; 2024 林宇鹏. 保留所有权利.</p>
+            <p>基于 GitHub Pages 部署</p>
+        </div>
+    </footer>
+
+    <!-- 脚本文件 -->
+    <script src="script.js"></script>
+</body>
+</html>
